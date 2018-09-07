@@ -1,0 +1,278 @@
+﻿
+<section class="hero hero-page gray-bg padding-small">
+    <div class="container">
+        <div class="row d-flex">
+            <div class="col-lg-9 order-2 order-lg-1">
+                <h1>Checkout</h1><p class="lead">You currently have 3 item(s) in your basket</p>
+            </div>
+            <div class="col-lg-3 text-right order-1 order-lg-2">
+                <ul class="breadcrumb justify-content-lg-end">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item active">Checkout</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="checkout">
+    <div class="container">
+        <div class="row" ng-controller="shoppingCartController">
+            <div class="col-lg-8">
+                <ul class="nav nav-pills">
+                    <li class="nav-item"><a class="nav-link" ng-class="{'active':CurrentTab==1}">Address</a></li>
+                    <li class="nav-item"><a class="nav-link" ng-class="{'active':CurrentTab==2}">Payment Method </a></li>
+                    <li class="nav-item"><a class="nav-link" ng-class="{'active':CurrentTab==3}">Order Review</a></li>
+                </ul>
+                <div class="tab-content" ng-if="CurrentTab==1">
+                    <div id="address" class="active tab-block">
+                        <form name='form1' ng-submit="">
+                            <!-- Invoice Address-->
+                            <div class="block-header mb-5">
+                                <h6>Shipping address</h6>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label for="shipping_firstname" class="form-label">First Name<span class="star">*</span></label>
+                                    <input id="shipping_firstname" ng-model="CustomerDetails.FirstName" type="text" name="FirstName" placeholder="Enter you first name" class="form-control" required>
+                                 
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="shipping_lastname" class="form-label">Last Name<span class="star">*</span></label>
+                                    <input id="shipping_lastname" type="text" name="LastName" ng-model="CustomerDetails.LastName" placeholder="Enter your last name" class="form-control" required>
+                                   
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="shipping_email" class="form-label">User Name<span class="star">*</span></label>
+                                    <input id="shipping_email" type="text" name="UserName" ng-model="CustomerDetails.UserName" placeholder="enter your email address" class="form-control" required>
+                             
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="shipping_street" class="form-label">Passward<span class="star">*</span></label>
+                                    <input id="shipping_street" type="text" name="Password" ng-model="CustomerDetails.Password" placeholder="Your street name" class="form-control" data-ng-minlength="8" required>
+                                     <span class="errormessage" ng-show="form1.Password.$error.minlength">Password must be 8 digits</span>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="shipping_email" class="form-label">Email Address<span class="star">*</span></label>
+                                    <input id="shipping_email" type="text" name="Email" ng-pattern="emailvalidation" ng-model="CustomerDetails.Email" placeholder="enter your email address" class="form-control" required>
+                                    <span class="errormessage" ng-show="form1.Email.$error.pattern">Email is not valid!</span>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="shipping_street" class="form-label">Street<span class="star">*</span></label>
+                                    <input id="shipping_street" type="text" name="Street" ng-model="CustomerDetails.Street" placeholder="Your street name" class="form-control" required>
+                                  
+
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="shipping_city" class="form-label">City<span class="star">*</span></label>
+                                    <input id="shipping_city" type="text" name="City" ng-model="CustomerDetails.City" placeholder="Your city" class="form-control box" required>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="shipping_zip" class="form-label">PinCode<span class="star">*</span></label>
+                                    <input id="shipping_zip" type="text" name="Pincode" placeholder="Pincode code" ng-model="CustomerDetails.PinCode" class="form-control box" data-ng-pattern="/^[0-9]+$/" required>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="shipping_state" class="form-label">State<span class="star">*</span></label>
+                                    <input id="shipping_state" type="text" name="State" ng-model="CustomerDetails.State" placeholder="Your state" class="form-control box" required>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="shipping_country" class="form-label">Country<span class="star">*</span></label>
+                                    <input id="shipping_country" type="text" name="Country" ng-model="CustomerDetails.Country" placeholder="Your country" class="form-control box" required>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="shipping_phone-number" class="form-label">Phone Number<span class="star">*</span></label>
+                                    <input id="shipping_phone-number" type="tel" name="Phone" ng-model="CustomerDetails.Phone" placeholder="Your phone number" class="form-control" data-ng-pattern="/^[0-9]+$/"
+                                           data-ng-minlength="10"
+                                           maxlength="12" required>
+                                    <span class="errormessage" ng-show="form1.Phone.$error.minlength">Phone Number is not valid!</span>
+                                    <span class="errormessage" ng-show="form1.Phone.$error.maxlength">Phone Number is not valid!</span>
+
+                                </div>
+
+                            </div>
+
+                            <div class="CTAs d-flex justify-content-between flex-column flex-lg-row"><a href="#/ShoppingCart" class="btn btn-template-outlined wide prev"> <i class="fa fa-angle-left"></i>Back to basket</a><button type="submit" ng-click="ChangeTab(2)" ng-disabled=!form1.$valid class="btn btn-template wide next">Continue to Payment<i class="fa fa-angle-right"></i></button></div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="tab-content" ng-if="CurrentTab==2">
+                    <div id="payment-method" class="tab-block">
+                        <div id="accordion" role="tablist" aria-multiselectable="true">
+                            <div class="card">
+                                <div id="headingOne" role="tab" class="card-header">
+                                    <h6><a data-toggle="collapse" data-parent="#accordion" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" class="collapsed">Credit Card</a></h6>
+                                </div>
+                                <div id="collapseOne" role="tabpanel" aria-labelledby="headingOne" class="collapse show">
+                                    <div class="card-body">
+                                        <input type="radio" value="0" ng-model="PaymentInformation.cardType" name="shippping" id="payment-method-0" ng-click="PaymentInformation.cardType" class="radio-template">
+                                        <label for="payment-method-0"><strong>Credit Card on Delivery</strong><br><span class="label-description">Select Credit Card Payment Mode <i style="font-size:25px;color:green;" class="{{ccinfo.type}}"></i></span></label>
+                                        <form name="form2" ng-show="PaymentInformation.cardType==0" ng-submit="Continue()">
+                                            <div class="row">
+                                                <div class="form-group col-md-6">
+                                                    <label for="card-name" class="form-label">Name on Card</label>
+                                                    <input type="text" name="card-name" placeholder="Name on card" ng-model="PaymentInformation.Nameoncard" id="card-name" class="form-control">
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label for="card-number" class="form-label">Card Number<span class="star">*</span></label>
+
+                                                    <input type="text" name="cardnumber" placeholder="Card number" ng-model="PaymentInformation.CardNumber" id="cardnumber" class="form-control" data-credit-card-type data-ng-pattern="/^[0-9]+$/"
+                                                           data-ng-minlength="15"
+                                                           maxlength="19" required>
+                                                    <span class="errormessage" ng-show="form2.cardnumber.$error.pattern">Credit card must consist of only numbers</span>
+                                                    <span class="errormessage" ng-show="form2.cardnumber.$error.invalid">Credit card must be a valid</span>
+                                                    <span class="errormessage" ng-show="form2.cardnumber.$error.minlength">Credit card must be 15-19 digits</span>
+                                                </div>
+                                                <div class="form-group col-md-4">
+                                                    <label for="expiry-date" class="form-label">Expiry Date<span class="star">*</span></label>
+
+                                                    <input type="text" name="expiry-date" placeholder="MM/YY" ng-model="PaymentInformation.ExpiryDate" id="expiry-date" class="form-control" required>
+                                                </div>
+                                                <div class="form-group col-md-4">
+                                                    <label for="cvv" class="form-label">CVC/CVV<span class="star">*</span></label>
+                                                    <input type="text" name="cvv" placeholder="123" id="cvv" ng-model="PaymentInformation.CVV" class="form-control" data-ng-pattern="/^[0-9]+$/" data-ng-minlength="3"
+                                                           maxlength="4" required>
+                                                </div>
+                                                <div class="form-group col-md-4">
+                                                    <label for="zip" class="form-label">ZIP<span class="star">*</span></label>
+                                                    <input type="text" name="zip" placeholder="123" id="zip" ng-model="PaymentInformation.Zip" class="form-control" data-ng-minlength="3" maxlength="5" required>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div id="headingTwo" role="tab" class="card-header">
+                                    <h6><a data-toggle="collapse" data-parent="#accordion" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" class="collapsed">Paypal</a></h6>
+                                </div>
+                                <div id="collapseTwo" role="tabpanel" aria-labelledby="headingTwo" class="collapse show">
+                                    <div class="card-body">
+                                        <input type="radio" value="1" ng-model="PaymentInformation.cardType" name="shippping" id="payment-method-1" ng-click="PaymentInformation.cardType" class="radio-template">
+                                        <label for="payment-method-1"><strong>Continue with Paypal</strong><br><span class="label-description">Select Paypal Payment Mode.</span></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div id="headingThree" role="tab" class="card-header">
+                                    <h6><a data-toggle="collapse" data-parent="#accordion" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" class="collapsed">Cash on delivery</a></h6>
+                                </div>
+                                <div id="collapseThree" role="tabpanel" aria-labelledby="headingThree" class="collapse show">
+                                    <div class="card-body">
+                                        <input type="radio" value="2" ng-model="PaymentInformation.cardType" name="shippping" id="payment-method-2" ng-click="PaymentInformation.cardType" class="radio-template">
+                                        <label for="payment-method-2"><strong>Cash on Delivery</strong><br><span class="label-description">Select Cash on Delivery Payment Mode.</span></label>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="CTAs d-flex justify-content-between flex-column flex-lg-row">
+                            <a ng-click="ChangeTab(1)" class="btn btn-template-outlined wide prev"><i class="fa fa-angle-left"></i>Back to Address </a>
+                            <button type="submit" ng-click="ChangeTab(3)" ng-if="PaymentInformation.cardType!='0'" ng-disabled="PaymentInformation.cardType==null" class="btn btn-template wide next">Continue to order review<i class="fa fa-angle-right"></i></button>
+                            <button type="submit" ng-click="ChangeTab(3)" ng-if="PaymentInformation.cardType=='0'" ng-disabled="!form2.$valid" class="btn btn-template wide next">Continue to order review<i class="fa fa-angle-right"></i></button>
+
+                        </div>
+               
+                    </div>
+                </div>
+
+                <div class="tab-content" ng-if="CurrentTab==3">
+                    <div id="order-review" class="tab-block">
+                        <div class="cart">
+                            <div class="cart-holder">
+                                <div class="basket-header">
+                                    <div class="row">
+                                        <div class="col-6">Product</div>
+                                        <div class="col-2">Price</div>
+                                        <div class="col-2">Quantity</div>
+                                        <div class="col-2">Unit Price</div>
+                                    </div>
+                                </div>
+                                <div class="basket-body">
+                                    <!-- Product-->
+                                    <div class="item row d-flex align-items-center" ng-repeat="item in shoppingCart track by $index">
+                                        <div class="col-6">
+                                            <div class="d-flex align-items-center">
+                                                <img src="{{GetProductImageGlobal(item.Image)}}" alt="..." class="img-fluid">
+                                                <div class="title">
+                                                    <a href="detail.html">
+                                                        <h6>{{item.ProductName}}</h6><span class="text-muted">Size: Large</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-2"><span>{{item.Cost| currency}}</span></div>
+                                        <div class="col-2"><span>{{item.Quantity}}</span></div>
+                                        <div class="col-2"><span>{{item.Cost*item.Quantity|currency}}</span></div>
+                                    </div>
+                                    <!-- Product-->
+                                    <!--<div class="item row d-flex align-items-center">
+                                        <div class="col-6">
+                                            <div class="d-flex align-items-center">
+                                                <img src="https://d19m59y37dris4.cloudfront.net/hub/1-4-0/img/shirt-black.png" alt="..." class="img-fluid">
+                                                <div class="title">
+                                                    <a href="detail.html">
+                                                        <h6>Loose Oversized Shirt</h6><span class="text-muted">Size: Medium</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-2"><span>$65.00</span></div>
+                                        <div class="col-2"><span>4</span></div>
+                                        <div class="col-2"><span>$325.00</span></div>
+                                    </div>-->
+                                </div>
+                            </div>
+                            <div class="total row"><span class="col-md-9 col-3">Total</span><span class="col-md-3 col-9 text-primary">{{TotalCartItems|currency}}</span></div>
+                        </div>
+                        <div class="CTAs d-flex justify-content-between flex-column flex-lg-row"><a ng-click="ChangeTab(2)" class="btn btn-template-outlined wide prev"><i class="fa fa-angle-left"></i>Back to payment method</a><a ng-click="PlaceOrder(shoppingCart)" class="btn btn-template wide next">Place an order<i class="fa fa-angle-right"></i></a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="block-body order-summary">
+                    <h6 class="text-uppercase">Order Summary</h6>
+                    <p>Shipping and additional costs are calculated based on values you have entered</p>
+                    <ul class="order-menu list-unstyled">
+                        <li class="d-flex justify-content-between"><span>Order Subtotal </span><strong>{{TotalCartItems| currency}}</strong></li>
+                        <li class="d-flex justify-content-between"><span>Shipping and handling</span><strong>{{shipping| currency}}</strong></li>
+                        <li class="d-flex justify-content-between"><span>Tax</span><strong>$0.00</strong></li>
+                        <li class="d-flex justify-content-between"><span>Total</span><strong class="text-primary price-total">{{TotalCartItems+shipping| currency}}</strong></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<style>
+
+  
+</style>
+
+
+<style>
+    section.checkout .nav-item {
+        width: 33.33% !important;
+        height: 100%;
+
+    }
+    .star{
+        color:#ff3e3e;
+    }
+    .errormessage {
+        color: #ff3e3e;
+        margin:15px;
+    }
+</style>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"></script>
+
+<script type="text/javascript">
+    $(function () {
+        $('#expiry-date').datetimepicker({
+            viewMode: 'years',
+            format: 'MM/YYYY'
+        });
+    });
+</script>

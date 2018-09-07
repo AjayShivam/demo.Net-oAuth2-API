@@ -1,0 +1,377 @@
+﻿<!DOCTYPE html>
+<html data-ng-app="AngularAuthApp">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ShivSaagar Online</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="https://d19m59y37dris4.cloudfront.net/hub/1-4-0/vendor/font-awesome/css/font-awesome.min.css">
+
+
+    <!-- Bootstrap Select-->
+    <link rel="stylesheet" href="vendor/bootstrap-select/css/bootstrap-select.min.css">
+    <!-- Price Slider Stylesheets -->
+    <link rel="stylesheet" href="vendor/nouislider/nouislider.css">
+    <!-- Custom font icons-->
+    <link rel="stylesheet" href="css/custom-fonticons.css">
+    <!-- Google fonts - Poppins-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700">
+    <!-- owl carousel-->
+    <link rel="stylesheet" href="vendor/owl.carousel/assets/owl.carousel.css">
+    <link rel="stylesheet" href="vendor/owl.carousel/assets/owl.theme.default.css">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="css/custom.css">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <!-- Modernizr-->
+    <script src="js/modernizr.custom.79639.js"></script>
+    <!-- Tweaks for older IEs-->
+    <!--[if lt IE 9]>
+    <script src="html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="respond/1.4.2/respond.min.js"></script><![endif]-->
+</head>
+<body>
+
+
+    <div data-ng-controller="indexController">
+        <header class="header">
+            <!-- Tob Bar-->
+            <div class="top-bar">
+                <div class="container-fluid">
+                    <div class="row d-flex align-items-center">
+                        <div class="col-lg-6 hidden-lg-down text-col">
+                            <ul class="list-inline">
+                                <li class="list-inline-item"><i class="icon-telephone"></i>02953-232033</li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-6 d-flex justify-content-end">
+                            <!-- Language Dropdown-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <nav class="navbar navbar-expand-lg">
+                <div class="search-area">
+                    <div class="search-area-inner d-flex align-items-center justify-content-center">
+                        <div class="close-btn"><i class="icon-close"></i></div>
+                        <form action="index.html#">
+                            <div class="form-group">
+                                <input type="search" name="search" id="search" placeholder="What are you looking for?">
+                                <button type="submit" class="submit"><i class="fa fa-search"></i></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="container-fluid">
+                    <!-- Navbar Header  --><a href="index.html" class="navbar-brand"><img src="img/logo.png" alt="..."></a>
+                    <button type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right"><i class="fa fa-bars"></i></button>
+                    <!-- Navbar Collapse -->
+                    <div id="navbarCollapse" class="collapse navbar-collapse">
+                        <ul class="navbar-nav mx-auto">
+                            <li class="nav-item dropdown">
+                                <a id="navbarHomeLink" href="#/Home" class="nav-link active">Home</a>
+
+                            </li>
+
+                            <!-- Megamenu-->
+                            <li class="nav-item dropdown menu-large">
+                                <a href="index.html#" data-toggle="dropdown" class="nav-link">Categories<i class="fa fa-angle-down"></i></a>
+                                <div class="dropdown-menu megamenu">
+
+                                    <div class="row">
+
+                                        <div class="col-lg-2" ng-repeat="cat in searchcategories" ng-if="cat.categories1.length==0">
+                                            <strong ng-if="cat.categories1.length==0">
+                                                <a style="text-decoration:none !important; text-shadow:none !important;"  ng-click="GoToProductsWithCategoryID(cat.id)">{{cat.categoryName}}  </a>
+                                            </strong>
+
+
+                                        </div>
+                                        <div class="col-lg-2" ng-repeat="cat in searchcategories" ng-if="cat.categories1.length>0">
+                                            <strong ng-if="cat.categories1.length>0">
+                                                <a style="background:transparent !important">
+                                                    {{cat.categoryName}}
+                                                </a>
+                                            </strong>
+
+                                            <ul class="list-unstyled">
+                                                <li ng-repeat="subcat in cat.categories1"><a style="padding-left: 25px !important; " ng-click="GoToProductsWithCategoryID(subcat.id)">{{subcat.categoryName}}</a></li>
+                                            </ul>
+
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="#/Product" class="nav-link">Shop</a>
+                            </li>
+
+                            <!-- /Megamenu end-->
+                            <!-- Multi level dropdown    -->
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdownMenuLink" href="http://example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link">Dropdown<i class="fa fa-angle-down"></i></a>
+                                <ul aria-labelledby="navbarDropdownMenuLink" class="dropdown-menu">
+                                    <li><a href="index.html#" class="dropdown-item">Action</a></li>
+                                    <li><a href="index.html#" class="dropdown-item">Another action</a></li>
+                                    <li class="dropdown-submenu">
+                                        <a id="navbarDropdownMenuLink2" href="http://example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link">Dropdown link<i class="fa fa-angle-down"></i></a>
+                                        <ul aria-labelledby="navbarDropdownMenuLink2" class="dropdown-menu">
+                                            <li><a href="index.html#" class="dropdown-item">Action</a></li>
+                                            <li class="dropdown-submenu">
+                                                <a id="navbarDropdownMenuLink3" href="http://example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link">
+
+                                                    Another action<i class="fa fa-angle-down"></i>
+                                                </a>
+                                                <ul aria-labelledby="navbarDropdownMenuLink3" class="dropdown-menu">
+                                                    <li><a href="index.html#" class="dropdown-item">Action</a></li>
+                                                    <li><a href="index.html#" class="dropdown-item">Action</a></li>
+                                                    <li><a href="index.html#" class="dropdown-item">Action</a></li>
+                                                    <li><a href="index.html#" class="dropdown-item">Action</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="index.html#" class="dropdown-item">Something else here</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <!-- Multi level dropdown end-->
+                            <li class="nav-item">
+                                <a href="blog.html" class="nav-link">Blog </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="contact.html" class="nav-link">Contact</a>
+                            </li>
+                        </ul>
+                        <div class="right-col d-flex align-items-lg-center flex-column flex-lg-row">
+                            <!-- Search Button-->
+                            <div class="search"><i class="icon-search"></i></div>
+                            <!-- User Not Logged - link to login page-->
+                            <div class="user"> <a id="userdetails" href="customer-login.html" class="user-link"><i class="icon-profile">                   </i></a></div>
+                            <!-- Cart Dropdown-->
+                            <div class="cart dropdown show">
+
+                                <ul class="cart-list">
+                                    <li ng-repeat="item in AllCartItems track by $index" class="">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <img ng-hide="item.Image==null || item.Image==''" class="responsive-img" style="width:50px;height:50px;" src="@SHIVAMFaceEcomm.MvcApplication.GlobalImageAssetUrl/ProductImages/{{item.Image}}">
+
+                                                <img ng-show="item.Image==null || item.Image==''" class="responsive-img" style="width:50px;height:50px;" src="/Content/images/no-image.png">
+                                            </div>
+                                            <div class="col-md-9">
+                                                <h5>{{item.ProductName}}</h5>
+                                                <p style="font-family:cursive">${{item.Cost}}</p>
+                                                <a class="trash" ng-click="DeleteCarttolist(item)"> <i class="fa fa-trash"></i>   </a>
+
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                </ul>
+                                <a id="cartdetails" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle">
+                                    <i class="icon-cart"></i>
+                                    <div class="cart-no">{{shoppingCart.length}}</div>
+                                </a><a class="text-primary view-cart">View Cart</a>
+                                <div aria-labelledby="cartdetails" class="dropdown-menu">
+                                    <!-- cart item-->
+                                    <div class="dropdown-item cart-product" ng-repeat="item in shoppingCart track by $index">
+                                        <div class="d-flex align-items-center">
+                                            <div class="img">
+                                                <img class="img-fluid" src="{{GetProductImageGlobal(item.Image)}}">
+
+                                            </div>
+                                            <div class="details d-flex justify-content-between">
+                                                <div class="text"> <a><strong>{{item.ProductName}}</strong></a><small>Quantity: {{item.Quantity}} </small><span class="price">${{item.Cost}} </span></div><a ng-click="DeleteFromCart(item)" class="delete"><i class="fa fa-trash-o"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- total price-->
+                                    <div class="dropdown-item total-price d-flex justify-content-between"><span>Total</span><strong class="text-primary">${{TotalOfCartItems}}</strong></div>
+                                    <!-- call to actions-->
+                                    <div class="dropdown-item CTA d-flex">
+                                        <a href="#/ShoppingCart" ng-class="{'disabled':shoppingCart.length==0}" class="btn btn-template wide">View Cart</a>
+                                        <a href="#/checkout" ng-class="{'disabled':shoppingCart.length==0}" class="btn btn-template wide">Checkout</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+    </div>
+
+
+    <div data-ng-view="">
+    </div>
+
+    <hr />
+
+    <footer class="main-footer">
+        <!-- Service Block-->
+        <div class="services-block">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 d-flex justify-content-center justify-content-lg-start">
+                        <div class="item d-flex align-items-center">
+                            <div class="icon"><i class="icon-truck"></i></div>
+                            <div class="text">
+                                <h6 class="no-margin text-uppercase">Free shipping &amp; return</h6><span>Free Shipping over $300</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 d-flex justify-content-center">
+                        <div class="item d-flex align-items-center">
+                            <div class="icon"><i class="icon-coin"></i></div>
+                            <div class="text">
+                                <h6 class="no-margin text-uppercase">Money back guarantee</h6><span>30 Days Money Back Guarantee</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 d-flex justify-content-center">
+                        <div class="item d-flex align-items-center">
+                            <div class="icon"><i class="icon-headphones"></i></div>
+                            <div class="text">
+                                <h6 class="no-margin text-uppercase">020-800-456-747</h6><span>24/7 Available Support</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Main Block -->
+        <div class="main-block">
+            <div class="container">
+                <div class="row">
+                    <div class="info col-lg-4">
+                        <div class="logo"><img src="img/logo-white.png" alt="..."></div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+                        <ul class="social-menu list-inline">
+                            <li class="list-inline-item"><a href="index.html#" target="_blank" title="twitter"><i class="fa fa-twitter"></i></a></li>
+                            <li class="list-inline-item"><a href="index.html#" target="_blank" title="facebook"><i class="fa fa-facebook"></i></a></li>
+                            <li class="list-inline-item"><a href="index.html#" target="_blank" title="instagram"><i class="fa fa-instagram"></i></a></li>
+                            <li class="list-inline-item"><a href="index.html#" target="_blank" title="pinterest"><i class="fa fa-pinterest"></i></a></li>
+                            <li class="list-inline-item"><a href="index.html#" target="_blank" title="vimeo"><i class="fa fa-vimeo"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="site-links col-lg-2 col-md-6">
+                        <h5 class="text-uppercase">Shop</h5>
+                        <ul class="list-unstyled">
+                            <li> <a href="index.html#">For Women</a></li>
+                            <li> <a href="index.html#">For Men</a></li>
+                            <li> <a href="index.html#">Stores</a></li>
+                            <li> <a href="index.html#">Our Blog</a></li>
+                            <li> <a href="index.html#">Shop</a></li>
+                        </ul>
+                    </div>
+                    <div class="site-links col-lg-2 col-md-6">
+                        <h5 class="text-uppercase">Company</h5>
+                        <ul class="list-unstyled">
+                            <li> <a href="index.html#">Login</a></li>
+                            <li> <a href="index.html#">Register</a></li>
+                            <li> <a href="index.html#">Wishlist</a></li>
+                            <li> <a href="index.html#">Our Products</a></li>
+                            <li> <a href="index.html#">Checkouts</a></li>
+                        </ul>
+                    </div>
+                    <div class="newsletter col-lg-4">
+                        <h5 class="text-uppercase">Daily Offers & Discounts</h5>
+                        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. At itaque temporibus.</p>
+                        <form action="index.html#" id="newsletter-form">
+                            <div class="form-group">
+                                <input type="email" name="subscribermail" placeholder="Your Email Address">
+                                <button type="submit"> <i class="fa fa-paper-plane"></i></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyrights">
+            <div class="container">
+                <div class="row d-flex align-items-center">
+                    <div class="text col-md-6">
+                        <p>&copy; 2018<a href="https://ondrejsvestka.cz" target="_blank">Ondrej Svestka </a> All rights reserved.</p>
+                    </div>
+                    <div class="payment col-md-6 clearfix">
+                        <ul class="payment-list list-inline-item pull-right">
+                            <li class="list-inline-item"><img src="img/visa.svg" alt="..."></li>
+                            <li class="list-inline-item"><img src="img/mastercard.svg" alt="..."></li>
+                            <li class="list-inline-item"><img src="img/paypal.svg" alt="..."></li>
+                            <li class="list-inline-item"><img src="img/western-union.svg" alt="..."></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/popper.js/umd/popper.min.js"> </script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="vendor/jquery.cookie/jquery.cookie.js"> </script>
+    <script src="vendor/owl.carousel/owl.carousel.min.js"></script>
+    <script src="vendor/owl.carousel2.thumbs/owl.carousel2.thumbs.min.js"></script>
+    <script src="vendor/bootstrap-select/js/bootstrap-select.min.js"></script>
+    <script src="vendor/nouislider/nouislider.min.js"></script>
+    <script src="vendor/jquery-countdown/jquery.countdown.min.js"></script>
+
+    <script>
+        $('.dropdown-menu').on('click', function (e) {
+            e.stopPropagation();
+        });
+    </script>
+    <script>
+        var _globalTotal = 0;
+
+
+    </script>
+
+    
+    <!-- Main Template File-->
+    <script src="js/front.js"></script>
+
+    <!-- 3rd party libraries -->
+
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-route.min.js"></script>
+    <script src="scripts/angular-local-storage.min.js"></script>
+    <script src="scripts/loading-bar.min.js"></script>
+    <script src="scripts/jquery.animate_from_to-1.0.js"></script>
+
+    <!-- Load app main script -->
+    <script src="app/app.js?v=2"></script>
+
+    <!-- Load services -->
+    <script src="app/services/authInterceptorService.js?v=2"></script>
+    <script src="app/services/authService.js?v=2"></script>
+    <script src="app/services/ordersService.js?v=2"></script>
+    <script src="app/services/tokensManagerService.js?v=2"></script>
+    <!-- Load controllers -->
+    <script src="app/controllers/indexController.js?v=2"></script>
+    <script src="app/controllers/homeController.js?v=2"></script>
+    <script src="app/controllers/loginController.js?v=2"></script>
+    <script src="app/controllers/signupController.js?v=2"></script>
+    <script src="app/controllers/ordersController.js?v=2"></script>
+    <script src="app/controllers/refreshController.js?v=2"></script>
+    <script src="app/controllers/tokensManagerController.js?v=2"></script>
+    <script src="app/controllers/productController.js"></script>
+    <script src="app/controllers/shoppingCartController.js"></script>
+    <script src="app/controllers/checkOutController.js"></script>
+    <script src="app/controllers/ProductDetailController.js"></script>
+    <!-- Load custom filters -->
+    <!-- Load custom directives -->
+
+</body>
+</html>

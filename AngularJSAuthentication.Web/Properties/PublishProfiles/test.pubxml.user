@@ -1,0 +1,271 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>C:\Users\SHIVAMITCS03\Desktop\webapp</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="app/app.js">
+      <publishTime>08/29/2018 13:48:46</publishTime>
+    </File>
+    <File Include="app/controllers/checkOutController.js">
+      <publishTime>08/29/2018 13:47:13</publishTime>
+    </File>
+    <File Include="app/controllers/homeController.js">
+      <publishTime>08/29/2018 14:00:58</publishTime>
+    </File>
+    <File Include="app/controllers/indexController.js">
+      <publishTime>08/29/2018 13:53:18</publishTime>
+    </File>
+    <File Include="app/controllers/loginController.js">
+      <publishTime>10/06/2014 08:34:02</publishTime>
+    </File>
+    <File Include="app/controllers/ordersController.js">
+      <publishTime>10/06/2014 08:34:02</publishTime>
+    </File>
+    <File Include="app/controllers/productController.js">
+      <publishTime>08/29/2018 14:49:06</publishTime>
+    </File>
+    <File Include="app/controllers/ProductDetailController.js">
+      <publishTime>08/29/2018 18:02:11</publishTime>
+    </File>
+    <File Include="app/controllers/refreshController.js">
+      <publishTime>08/24/2018 15:07:10</publishTime>
+    </File>
+    <File Include="app/controllers/shoppingCartController.js">
+      <publishTime>08/24/2018 14:39:10</publishTime>
+    </File>
+    <File Include="app/controllers/signupController.js">
+      <publishTime>10/06/2014 08:34:02</publishTime>
+    </File>
+    <File Include="app/controllers/tokensManagerController.js">
+      <publishTime>10/06/2014 08:34:02</publishTime>
+    </File>
+    <File Include="app/services/authInterceptorService.js">
+      <publishTime>10/06/2014 08:34:02</publishTime>
+    </File>
+    <File Include="app/services/authService.js">
+      <publishTime>10/06/2014 08:34:02</publishTime>
+    </File>
+    <File Include="app/services/ordersService.js">
+      <publishTime>10/06/2014 08:34:02</publishTime>
+    </File>
+    <File Include="app/services/tokensManagerService.js">
+      <publishTime>10/06/2014 08:34:02</publishTime>
+    </File>
+    <File Include="app/views/associate.html">
+      <publishTime>10/06/2014 08:34:02</publishTime>
+    </File>
+    <File Include="app/views/checkOut.html">
+      <publishTime>08/29/2018 15:21:15</publishTime>
+    </File>
+    <File Include="app/views/Customer.html">
+      <publishTime>05/27/2017 12:20:22</publishTime>
+    </File>
+    <File Include="app/views/Eployee.html">
+      <publishTime>05/27/2017 12:20:20</publishTime>
+    </File>
+    <File Include="app/views/home.html">
+      <publishTime>08/29/2018 13:55:16</publishTime>
+    </File>
+    <File Include="app/views/login.html">
+      <publishTime>10/06/2014 08:34:02</publishTime>
+    </File>
+    <File Include="app/views/Merchant.html">
+      <publishTime>05/27/2017 11:54:10</publishTime>
+    </File>
+    <File Include="app/views/MerchantList.html">
+      <publishTime>07/19/2017 10:11:30</publishTime>
+    </File>
+    <File Include="app/views/orders.html">
+      <publishTime>10/06/2014 08:34:02</publishTime>
+    </File>
+    <File Include="app/views/product.html">
+      <publishTime>08/29/2018 16:14:45</publishTime>
+    </File>
+    <File Include="app/views/Productdetails.html">
+      <publishTime>08/29/2018 17:54:04</publishTime>
+    </File>
+    <File Include="app/views/refresh.html">
+      <publishTime>10/06/2014 08:34:02</publishTime>
+    </File>
+    <File Include="app/views/Service.html">
+      <publishTime>05/27/2017 12:25:05</publishTime>
+    </File>
+    <File Include="app/views/shoppingCart.html">
+      <publishTime>08/24/2018 14:57:40</publishTime>
+    </File>
+    <File Include="app/views/signup.html">
+      <publishTime>10/06/2014 08:34:02</publishTime>
+    </File>
+    <File Include="app/views/Task.html">
+      <publishTime>05/27/2017 12:31:49</publishTime>
+    </File>
+    <File Include="app/views/tokens.html">
+      <publishTime>10/06/2014 08:34:02</publishTime>
+    </File>
+    <File Include="authComplete.html">
+      <publishTime>10/06/2014 08:34:02</publishTime>
+    </File>
+    <File Include="bin/AngularJSAuthentication.Web.dll">
+      <publishTime>08/29/2018 18:02:23</publishTime>
+    </File>
+    <File Include="content/css/bootstrap.min.css">
+      <publishTime>10/06/2014 08:34:02</publishTime>
+    </File>
+    <File Include="content/css/font-awesome.min.css">
+      <publishTime>10/06/2014 08:34:02</publishTime>
+    </File>
+    <File Include="content/css/loading-bar.css">
+      <publishTime>10/06/2014 08:34:02</publishTime>
+    </File>
+    <File Include="content/css/loading-bar.min.css">
+      <publishTime>10/06/2014 08:34:02</publishTime>
+    </File>
+    <File Include="content/css/site.css">
+      <publishTime>10/06/2014 08:34:02</publishTime>
+    </File>
+    <File Include="content/css/social-buttons.css">
+      <publishTime>10/06/2014 08:34:02</publishTime>
+    </File>
+    <File Include="content/fonts/fontawesome-webfont.eot">
+      <publishTime>10/06/2014 08:34:02</publishTime>
+    </File>
+    <File Include="content/fonts/fontawesome-webfont.svg">
+      <publishTime>10/06/2014 08:34:02</publishTime>
+    </File>
+    <File Include="content/fonts/fontawesome-webfont.ttf">
+      <publishTime>10/06/2014 08:34:02</publishTime>
+    </File>
+    <File Include="content/fonts/fontawesome-webfont.woff">
+      <publishTime>10/06/2014 08:34:02</publishTime>
+    </File>
+    <File Include="content/fonts/FontAwesome.otf">
+      <publishTime>10/06/2014 08:34:02</publishTime>
+    </File>
+    <File Include="content/fonts/glyphicons-halflings-regular.eot">
+      <publishTime>10/06/2014 08:34:02</publishTime>
+    </File>
+    <File Include="content/fonts/glyphicons-halflings-regular.svg">
+      <publishTime>10/06/2014 08:34:02</publishTime>
+    </File>
+    <File Include="content/fonts/glyphicons-halflings-regular.ttf">
+      <publishTime>10/06/2014 08:34:02</publishTime>
+    </File>
+    <File Include="content/fonts/glyphicons-halflings-regular.woff">
+      <publishTime>10/06/2014 08:34:02</publishTime>
+    </File>
+    <File Include="css/custom-fonticons.css">
+      <publishTime>08/21/2018 17:16:38</publishTime>
+    </File>
+    <File Include="css/custom.css">
+      <publishTime>08/29/2018 13:25:36</publishTime>
+    </File>
+    <File Include="css/style.default.css">
+      <publishTime>08/21/2018 17:04:51</publishTime>
+    </File>
+    <File Include="fonts/clotheshub.eot">
+      <publishTime>08/21/2018 17:16:37</publishTime>
+    </File>
+    <File Include="fonts/clotheshub.ttf">
+      <publishTime>08/21/2018 17:16:37</publishTime>
+    </File>
+    <File Include="fonts/clotheshub.woff">
+      <publishTime>08/21/2018 17:16:37</publishTime>
+    </File>
+    <File Include="html5shiv/3.7.3/html5shiv.min.js">
+      <publishTime>08/21/2018 17:04:43</publishTime>
+    </File>
+    <File Include="img/loading.gif">
+      <publishTime>08/29/2018 14:50:22</publishTime>
+    </File>
+    <File Include="img/logo-.png">
+      <publishTime>08/21/2018 18:33:33</publishTime>
+    </File>
+    <File Include="img/logo.png">
+      <publishTime>08/22/2018 16:36:53</publishTime>
+    </File>
+    <File Include="img/no-image.png">
+      <publishTime>05/29/2018 17:31:51</publishTime>
+    </File>
+    <File Include="img/nocategory.png">
+      <publishTime>06/02/2018 11:40:48</publishTime>
+    </File>
+    <File Include="index.html">
+      <publishTime>08/29/2018 14:22:25</publishTime>
+    </File>
+    <File Include="js/front.js">
+      <publishTime>08/29/2018 14:06:39</publishTime>
+    </File>
+    <File Include="js/modernizr.custom.79639.js">
+      <publishTime>08/21/2018 17:04:43</publishTime>
+    </File>
+    <File Include="respond/1.4.2/respond.min.js">
+      <publishTime>08/21/2018 17:04:43</publishTime>
+    </File>
+    <File Include="scripts/angular-local-storage.min.js">
+      <publishTime>10/06/2014 08:34:02</publishTime>
+    </File>
+    <File Include="scripts/authComplete.js">
+      <publishTime>10/06/2014 08:34:02</publishTime>
+    </File>
+    <File Include="scripts/jquery.animate_from_to-1.0.js">
+      <publishTime>08/23/2018 15:15:10</publishTime>
+    </File>
+    <File Include="scripts/loading-bar.min.js">
+      <publishTime>10/06/2014 08:34:02</publishTime>
+    </File>
+    <File Include="vendor/bootstrap-select/css/bootstrap-select.min.css">
+      <publishTime>08/21/2018 17:04:43</publishTime>
+    </File>
+    <File Include="vendor/bootstrap-select/js/bootstrap-select.min.js">
+      <publishTime>08/21/2018 17:04:43</publishTime>
+    </File>
+    <File Include="vendor/bootstrap/css/bootstrap.min.css">
+      <publishTime>08/21/2018 17:04:43</publishTime>
+    </File>
+    <File Include="vendor/bootstrap/js/bootstrap.min.js">
+      <publishTime>08/21/2018 17:04:43</publishTime>
+    </File>
+    <File Include="vendor/font-awesome/css/font-awesome.min.css">
+      <publishTime>08/21/2018 17:04:43</publishTime>
+    </File>
+    <File Include="vendor/jquery-coundown/jquery.countdown.min.js">
+      <publishTime>08/21/2018 17:04:43</publishTime>
+    </File>
+    <File Include="vendor/jquery.cookie/jquery.cookie.js">
+      <publishTime>08/21/2018 17:04:43</publishTime>
+    </File>
+    <File Include="vendor/jquery/jquery.min.js">
+      <publishTime>08/21/2018 17:04:43</publishTime>
+    </File>
+    <File Include="vendor/nouislider/nouislider.css">
+      <publishTime>08/21/2018 17:04:43</publishTime>
+    </File>
+    <File Include="vendor/nouislider/nouislider.min.js">
+      <publishTime>08/21/2018 17:04:43</publishTime>
+    </File>
+    <File Include="vendor/owl.carousel/assets/owl.carousel.css">
+      <publishTime>08/21/2018 17:04:43</publishTime>
+    </File>
+    <File Include="vendor/owl.carousel/assets/owl.theme.default.css">
+      <publishTime>08/21/2018 17:04:43</publishTime>
+    </File>
+    <File Include="vendor/owl.carousel/owl.carousel.min.js">
+      <publishTime>08/21/2018 17:04:43</publishTime>
+    </File>
+    <File Include="vendor/owl.carousel2.thumbs/owl.carousel2.thumbs.min.js">
+      <publishTime>08/21/2018 17:04:43</publishTime>
+    </File>
+    <File Include="vendor/popper.js/umd/popper.min.js">
+      <publishTime>08/21/2018 17:04:43</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>08/23/2018 18:36:35</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

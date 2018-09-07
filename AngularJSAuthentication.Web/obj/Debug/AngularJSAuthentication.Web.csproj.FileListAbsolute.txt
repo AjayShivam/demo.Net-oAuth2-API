@@ -1,0 +1,12 @@
+E:\AngularJSAuthentication-master\AngularJSAuthentication.Web\bin\AngularJSAuthentication.Web.dll.config
+E:\AngularJSAuthentication-master\AngularJSAuthentication.Web\bin\AngularJSAuthentication.Web.dll
+E:\AngularJSAuthentication-master\AngularJSAuthentication.Web\bin\AngularJSAuthentication.Web.pdb
+E:\AngularJSAuthentication-master\AngularJSAuthentication.Web\obj\Debug\AngularJSAuthentication.Web.dll
+E:\AngularJSAuthentication-master\AngularJSAuthentication.Web\obj\Debug\AngularJSAuthentication.Web.pdb
+E:\AngularJSAuthentication-master\AngularJSAuthentication.Web\obj\Debug\AngularJSAuthentication.Web.csprojResolveAssemblyReference.cache
+E:\Shivam_Ecommerce\ShivSagarOnline\AngularJSAuthentication.Web\bin\AngularJSAuthentication.Web.dll.config
+E:\Shivam_Ecommerce\ShivSagarOnline\AngularJSAuthentication.Web\bin\AngularJSAuthentication.Web.dll
+E:\Shivam_Ecommerce\ShivSagarOnline\AngularJSAuthentication.Web\bin\AngularJSAuthentication.Web.pdb
+E:\Shivam_Ecommerce\ShivSagarOnline\AngularJSAuthentication.Web\obj\Debug\AngularJSAuthentication.Web.dll
+E:\Shivam_Ecommerce\ShivSagarOnline\AngularJSAuthentication.Web\obj\Debug\AngularJSAuthentication.Web.pdb
+E:\Shivam_Ecommerce\ShivSagarOnline\AngularJSAuthentication.Web\obj\Debug\AngularJSAuthentication.Web.csprojResolveAssemblyReference.cache

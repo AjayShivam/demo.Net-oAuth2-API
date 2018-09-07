@@ -1,0 +1,104 @@
+﻿<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <td colspan="2">
+                Fill Below Form To Add A New Task
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Name</td>
+            <td>
+                <input type="text" id="TaskName" class="form-control" />
+            </td>
+        </tr>
+        <tr>
+            <td>Description</td>
+            <td>
+                <textarea id="TaskDescription" class="form-control"> </textarea>
+            </td>
+        </tr>
+        <tr>
+            <td>Task Start Time</td>
+            <td>
+                <input type="text" id="TaskStartTime" class="form-control" />
+            </td>
+        </tr>
+        <tr>
+            <td>Task End Time</td>
+            <td>
+                <input type="text" id="TaskEndTime" class="form-control" />
+            </td>
+        </tr>
+        <tr>
+            <td>Task Estimated Complition Time</td>
+            <td>
+                <input type="text" id="TaskEstimatedComplitionTime" class="form-control" />
+            </td>
+        </tr>
+        <tr>
+            <td>Is Task Rescheduable</td>
+            <td>
+                <input type="text" id="IsTaskRescheduable" class="form-control" />
+            </td>
+        </tr>
+        <tr>
+            <td>Task Reschedule Date</td>
+            <td>
+                <input type="Date" id="TaskRescheduleDate" class="form-control" />
+            </td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td>
+                <input type="button" id="AddService" value="Add New Customer" class="btn btn-primary" />
+            </td>
+            <td>
+                <input type="button" id="ResetService" value="ResetForm" class="btn btn-primary" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <div id="divError">
+                    <p id="divErrorText"></p>
+                </div>
+            </td>
+        </tr>
+    </tfoot>
+</table>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $("#AddCustomer").click(function () {
+            debugger;
+            var Task = {
+                Name: $("#TaskName").val(),
+                Description: $("#TaskDescription").val(),
+                ServiceStartTime: $("#TaskStartTime").val(),
+                ServiceCompletionTime: $("#TaskEstimatedComplitionTime").val(),
+                ServiceEndTime: $("#TaskEndTime").val(),
+                IsServiceReScheduable: $("#IsTaskRescheduable").val(),
+                ServiceRescheduleDate: $("#TaskRescheduleDate").val(),
+            }
+            console.log(Task);
+            $.ajax({
+                url: 'http://localhost:26264/api/Task',
+                method: 'POST',
+                data: JSON.stringify(Task),
+                contentType: "application/json",
+                processData: false,
+                success: function () {
+                    alert("Successful");
+                },
+                error: function (jqXHR) {
+                    $("#divError").show('fade');
+                    $("#divErrorText").text(jqXHR.responseText);
+                }
+            });
+        });
+    });
+</script>

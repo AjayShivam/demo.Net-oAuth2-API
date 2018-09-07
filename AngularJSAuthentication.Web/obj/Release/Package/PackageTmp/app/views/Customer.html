@@ -1,0 +1,83 @@
+﻿<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <td colspan="2">
+                Fill Below Form To Add A New Customer
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Name</td>
+            <td>
+                <input type="text" id="CustomerName" class="form-control" />
+            </td>
+        </tr>
+        <tr>
+            <td>Address</td>
+            <td>
+                <input type="text" id="CustomerAddress" class="form-control" />
+            </td>
+        </tr>
+        <tr>
+            <td>Contact Number</td>
+            <td>
+                <input type="text" id="CustomerContactNumber" class="form-control" />
+            </td>
+        </tr>
+        <tr>
+            <td>Description</td>
+            <td>
+                <textarea id="CustomerDescription" class="form-control"> </textarea>
+            </td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td>
+                <input type="button" id="AddCustomer" value="Add New Customer" class="btn btn-primary" />
+            </td>
+            <td>
+                <input type="button" id="ResetCustomer" value="ResetForm" class="btn btn-primary" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <div id="divError">
+                    <p id="divErrorText"></p>
+                </div>
+            </td>
+        </tr>
+    </tfoot>
+</table>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $("#AddCustomer").click(function () {
+            debugger;
+            var Customer = {
+                Name: $("#CustomerName").val(),
+                Address: $("#CustomerAddress").val(),
+                ContactNumber: $("#CustomerContactNumber").val(),
+                Description: $("#CustomerDescription").val(),
+            }
+            console.log(Customer);
+            $.ajax({
+                url: 'http://localhost:26264/api/Customer',
+                method: 'POST',
+                data: JSON.stringify(Customer),
+                contentType: "application/json",
+                processData: false,
+                success: function () {
+                    alert("Successful");
+                },
+                error: function (jqXHR) {
+                    $("#divError").show('fade');
+                    $("#divErrorText").text(jqXHR.responseText);
+                }
+            });
+        });
+    });
+</script>

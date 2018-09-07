@@ -1,0 +1,1338 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SHIVAMEcommerceDBNew18Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <ComplexType Name="SplitString_Result">
+    <Property Name="Item" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+  </ComplexType>
+  <EntityType Name="C__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AllProductImage">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ImageName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ImagePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UserID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Sort" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SupplierID" Type="Int32" />
+    <NavigationProperty Name="Supplier" Relationship="Self.FK_dbo_AllProductImages_dbo_Suppliers_SupplierID" FromRole="AllProductImages" ToRole="Suppliers" />
+    <NavigationProperty Name="ProductImages" Relationship="Self.FK_dbo_ProductImages_dbo_AllProductImages_ImageID" FromRole="AllProductImages" ToRole="ProductImages" />
+  </EntityType>
+  <EntityType Name="AspNetRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUserRoles" Relationship="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" FromRole="AspNetRoles" ToRole="AspNetUserRoles" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaim">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ClaimID" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="DisplayLabel" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Discriminator" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="User_Id" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+    <NavigationProperty Name="Claim" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_Claims_ClaimID" FromRole="AspNetUserClaims" ToRole="Claims" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogin">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+    </Key>
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserRole">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RoleId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="User_Id" Type="Guid" />
+    <NavigationProperty Name="AspNetRole" Relationship="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" FromRole="AspNetUserRoles" ToRole="AspNetRoles" />
+    <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" FromRole="AspNetUserRoles" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="Sort" Type="Int32" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreatedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="resetPasswordToken" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Discriminator" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+    <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+    <NavigationProperty Name="AspNetUserRoles" Relationship="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserRoles" />
+    <NavigationProperty Name="Customers" Relationship="Self.FK_dbo_Customers_dbo_AspNetUsers_UserID" FromRole="AspNetUsers" ToRole="Customers" />
+    <NavigationProperty Name="Suppliers" Relationship="Self.FK_dbo_Suppliers_dbo_AspNetUsers_UserID" FromRole="AspNetUsers" ToRole="Suppliers" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="ParentCategory" Type="Int32" />
+    <Property Name="CategoryImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Sort" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SupplierCategoryType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Discriminator" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Supplier_Id" Type="Int32" />
+    <Property Name="IsTopCategory" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Categories1" Relationship="Self.FK_dbo_Categories_dbo_Categories_ParentCategory" FromRole="Categories" ToRole="Categories1" />
+    <NavigationProperty Name="Category1" Relationship="Self.FK_dbo_Categories_dbo_Categories_ParentCategory" FromRole="Categories1" ToRole="Categories" />
+    <NavigationProperty Name="Supplier" Relationship="Self.FK_dbo_Categories_dbo_Suppliers_Supplier_Id" FromRole="Categories" ToRole="Suppliers" />
+    <NavigationProperty Name="Products" Relationship="Self.FK_dbo_Products_dbo_Categories_CateogryID" FromRole="Categories" ToRole="Products" />
+  </EntityType>
+  <EntityType Name="Claim">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Sort" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Role" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimGroup" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_Claims_ClaimID" FromRole="Claims" ToRole="AspNetUserClaims" />
+  </EntityType>
+  <EntityType Name="CustomerAddress">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Address1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Address2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="State" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Country" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Region" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AddressType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Sort" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="CustomerReview">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductId" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Review" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Rating" Type="Int32" />
+    <NavigationProperty Name="Product" Relationship="Self.FK_dbo_CustomerReviews_dbo_Products_ProductId" FromRole="CustomerReviews" ToRole="Products" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreditCard" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreditCardType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CardExpMo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CardExpYr" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UserID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Sort" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_Customers_dbo_AspNetUsers_UserID" FromRole="Customers" ToRole="AspNetUsers" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK_dbo_Orders_dbo_Customers_CustomerID" FromRole="Customers" ToRole="Orders" />
+    <NavigationProperty Name="WishLists" Relationship="Self.FK_dbo_WishLists_dbo_Customers_CustomerId" FromRole="Customers" ToRole="WishLists" />
+  </EntityType>
+  <EntityType Name="emailrecord">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Email_Sender" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Email_Receiver" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Send_Date" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Subject" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="EmailSender">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ReceiverId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SenderId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Subject" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ContentMsg" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsAttachment" Type="Boolean" Nullable="false" />
+    <Property Name="Attachment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsRead" Type="Boolean" Nullable="false" />
+    <Property Name="SendingDate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="FeaturedSupplier">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SupplierID" Type="Int32" Nullable="false" />
+    <Property Name="OfferMessage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ImagePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Sort" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Supplier" Relationship="Self.FK_dbo_FeaturedSuppliers_dbo_Suppliers_SupplierID" FromRole="FeaturedSuppliers" ToRole="Suppliers" />
+  </EntityType>
+  <EntityType Name="Feature">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Sort" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PlanFeatures" Relationship="Self.FK_dbo_PlanFeatures_dbo_Features_FeatureID" FromRole="Features" ToRole="PlanFeatures" />
+  </EntityType>
+  <EntityType Name="Manufacturer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SupplierID" Type="Int32" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Sort" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Products" Relationship="Self.FK_dbo_Products_dbo_Manufacturers_ManuFacturerID" FromRole="Manufacturers" ToRole="Products" />
+  </EntityType>
+  <EntityType Name="OrderItem">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductID" Type="Int32" Nullable="false" />
+    <Property Name="UnitPrice" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="TotalPrice" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Discount" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="SupplierID" Type="Int32" Nullable="false" />
+    <Property Name="Orders_Id" Type="Int32" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Sort" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Order" Relationship="Self.FK_dbo_OrderItems_dbo_Orders_Orders_Id" FromRole="OrderItems" ToRole="Orders" />
+    <NavigationProperty Name="ProductAttributeWithQuantity" Relationship="Self.FK_dbo_OrderItems_dbo_ProductAttributeWithQuantities_ProductID" FromRole="OrderItems" ToRole="ProductAttributeWithQuantities" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="OrderDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ShipDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="RequiredDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IsPaid" Type="Boolean" />
+    <Property Name="TimeStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Isdeleted" Type="Boolean" />
+    <Property Name="TransactionStatus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CustomerID" Type="Int32" Nullable="false" />
+    <Property Name="OrderStatusID" Type="Int32" Nullable="false" />
+    <Property Name="TotalDiscount" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="TotalPrice" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Sort" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK_dbo_Orders_dbo_Customers_CustomerID" FromRole="Orders" ToRole="Customers" />
+    <NavigationProperty Name="OrderItems" Relationship="Self.FK_dbo_OrderItems_dbo_Orders_Orders_Id" FromRole="Orders" ToRole="OrderItems" />
+    <NavigationProperty Name="OrderStatu" Relationship="Self.FK_dbo_Orders_dbo_OrderStatus_OrderStatusID" FromRole="Orders" ToRole="OrderStatus" />
+  </EntityType>
+  <EntityType Name="OrderStatu">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Sort" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK_dbo_Orders_dbo_OrderStatus_OrderStatusID" FromRole="OrderStatus" ToRole="Orders" />
+  </EntityType>
+  <EntityType Name="Payment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Amount" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="ReferenceDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PaymentType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PaymentStatus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Sort" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="PlanFeature">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PlanID" Type="Int32" Nullable="false" />
+    <Property Name="FeatureID" Type="Int32" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Sort" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Feature" Relationship="Self.FK_dbo_PlanFeatures_dbo_Features_FeatureID" FromRole="PlanFeatures" ToRole="Features" />
+    <NavigationProperty Name="Plan" Relationship="Self.FK_dbo_PlanFeatures_dbo_Plans_PlanID" FromRole="PlanFeatures" ToRole="Plans" />
+  </EntityType>
+  <EntityType Name="Plan">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PlanName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Plancode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Sort" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PlanFrequency" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MonthlyPrice" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="YearlyPrice" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="TotalYearlyPrice" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="TotalMonthlyPrice" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="ProductBucketCount" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="UserBucketCount" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="PlanFeatures" Relationship="Self.FK_dbo_PlanFeatures_dbo_Plans_PlanID" FromRole="Plans" ToRole="PlanFeatures" />
+    <NavigationProperty Name="Suppliers" Relationship="Self.FK_dbo_Suppliers_dbo_Plans_PlanID" FromRole="Plans" ToRole="Suppliers" />
+  </EntityType>
+  <EntityType Name="ProductAttribute">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AttributeName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AttributeDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ProductAttributesRelations" Relationship="Self.FK_dbo_ProductAttributesRelations_dbo_ProductAttributes_ProductAttributesId" FromRole="ProductAttributes" ToRole="ProductAttributesRelations" />
+  </EntityType>
+  <EntityType Name="ProductAttributesRelation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SupplierID" Type="Int32" Nullable="false" />
+    <Property Name="ProductAttributesId" Type="Int32" Nullable="false" />
+    <Property Name="Product_Id" Type="Int32" />
+    <NavigationProperty Name="ProductAttribute" Relationship="Self.FK_dbo_ProductAttributesRelations_dbo_ProductAttributes_ProductAttributesId" FromRole="ProductAttributesRelations" ToRole="ProductAttributes" />
+    <NavigationProperty Name="Product" Relationship="Self.FK_dbo_ProductAttributesRelations_dbo_Products_Product_Id" FromRole="ProductAttributesRelations" ToRole="Products" />
+    <NavigationProperty Name="Supplier" Relationship="Self.FK_dbo_ProductAttributesRelations_dbo_Suppliers_SupplierID" FromRole="ProductAttributesRelations" ToRole="Suppliers" />
+  </EntityType>
+  <EntityType Name="ProductAttributeWithQuantity">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductId" Type="Int32" Nullable="false" />
+    <Property Name="AttributeValues" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsAvailable" Type="Boolean" />
+    <Property Name="Discount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="UnitPrice" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="UnitWeight" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="UnitInStock" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="UnitsInOrder" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="ProductQuantity" Type="Int32" Nullable="false" />
+    <Property Name="ProductPrice" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Weight" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="IsFeatured" Type="Boolean" Nullable="false" />
+    <Property Name="lowQuantityThreshold" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="highQuantityThreshold" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="StatusId" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="OrderItems" Relationship="Self.FK_dbo_OrderItems_dbo_ProductAttributeWithQuantities_ProductID" FromRole="ProductAttributeWithQuantities" ToRole="OrderItems" />
+    <NavigationProperty Name="Product" Relationship="Self.FK_dbo_ProductAttributeWithQuantities_dbo_Products_ProductId" FromRole="ProductAttributeWithQuantities" ToRole="Products" />
+    <NavigationProperty Name="ProductStatu" Relationship="Self.FK_dbo_ProductAttributeWithQuantities_dbo_ProductStatus_StatusId" FromRole="ProductAttributeWithQuantities" ToRole="ProductStatus" />
+    <NavigationProperty Name="ProductImages" Relationship="Self.FK_dbo_ProductImages_dbo_ProductAttributeWithQuantities_ProductQuantityId" FromRole="ProductAttributeWithQuantities" ToRole="ProductImages" />
+  </EntityType>
+  <EntityType Name="ProductImage">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ImageName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ImagePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ProductQuantityId" Type="Int32" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Sort" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Product_Id" Type="Int32" />
+    <Property Name="SupplierID" Type="Int32" />
+    <Property Name="ImageID" Type="Int32" />
+    <NavigationProperty Name="AllProductImage" Relationship="Self.FK_dbo_ProductImages_dbo_AllProductImages_ImageID" FromRole="ProductImages" ToRole="AllProductImages" />
+    <NavigationProperty Name="ProductAttributeWithQuantity" Relationship="Self.FK_dbo_ProductImages_dbo_ProductAttributeWithQuantities_ProductQuantityId" FromRole="ProductImages" ToRole="ProductAttributeWithQuantities" />
+    <NavigationProperty Name="Product" Relationship="Self.FK_dbo_ProductImages_dbo_Products_Product_Id" FromRole="ProductImages" ToRole="Products" />
+    <NavigationProperty Name="Supplier" Relationship="Self.FK_dbo_ProductImages_dbo_Suppliers_SupplierID" FromRole="ProductImages" ToRole="Suppliers" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProductCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Ranking" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SKU" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IDSKU" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SupplierID" Type="Int32" Nullable="false" />
+    <Property Name="ManuFacturerID" Type="Int32" Nullable="false" />
+    <Property Name="CateogryID" Type="Int32" Nullable="false" />
+    <Property Name="UnitOfMeasuresId" Type="Int32" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Sort" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Category" Relationship="Self.FK_dbo_Products_dbo_Categories_CateogryID" FromRole="Products" ToRole="Categories" />
+    <NavigationProperty Name="CustomerReviews" Relationship="Self.FK_dbo_CustomerReviews_dbo_Products_ProductId" FromRole="Products" ToRole="CustomerReviews" />
+    <NavigationProperty Name="Manufacturer" Relationship="Self.FK_dbo_Products_dbo_Manufacturers_ManuFacturerID" FromRole="Products" ToRole="Manufacturers" />
+    <NavigationProperty Name="ProductAttributesRelations" Relationship="Self.FK_dbo_ProductAttributesRelations_dbo_Products_Product_Id" FromRole="Products" ToRole="ProductAttributesRelations" />
+    <NavigationProperty Name="ProductAttributeWithQuantities" Relationship="Self.FK_dbo_ProductAttributeWithQuantities_dbo_Products_ProductId" FromRole="Products" ToRole="ProductAttributeWithQuantities" />
+    <NavigationProperty Name="ProductImages" Relationship="Self.FK_dbo_ProductImages_dbo_Products_Product_Id" FromRole="Products" ToRole="ProductImages" />
+    <NavigationProperty Name="Supplier" Relationship="Self.FK_dbo_Products_dbo_Suppliers_SupplierID" FromRole="Products" ToRole="Suppliers" />
+    <NavigationProperty Name="UnitOfMeasure" Relationship="Self.FK_dbo_Products_dbo_UnitOfMeasures_UnitOfMeasuresId" FromRole="Products" ToRole="UnitOfMeasures" />
+    <NavigationProperty Name="WishLists" Relationship="Self.FK_dbo_WishLists_dbo_Products_ProductId" FromRole="Products" ToRole="WishLists" />
+  </EntityType>
+  <EntityType Name="ProductStatu">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Sort" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ProductAttributeWithQuantities" Relationship="Self.FK_dbo_ProductAttributeWithQuantities_dbo_ProductStatus_StatusId" FromRole="ProductStatus" ToRole="ProductAttributeWithQuantities" />
+  </EntityType>
+  <EntityType Name="Supplier">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Address1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Address2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="State" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PostalCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Country" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="URL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Logo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SupplierType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ParentSupplierID" Type="Int32" Nullable="false" />
+    <Property Name="RegisteredByID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UserID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="PlanID" Type="Int32" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Sort" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PlanStartDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="PlanEndDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ProductCount" Type="Int32" Nullable="false" />
+    <Property Name="UserCount" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="AllProductImages" Relationship="Self.FK_dbo_AllProductImages_dbo_Suppliers_SupplierID" FromRole="Suppliers" ToRole="AllProductImages" />
+    <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_Suppliers_dbo_AspNetUsers_UserID" FromRole="Suppliers" ToRole="AspNetUsers" />
+    <NavigationProperty Name="Categories" Relationship="Self.FK_dbo_Categories_dbo_Suppliers_Supplier_Id" FromRole="Suppliers" ToRole="Categories" />
+    <NavigationProperty Name="FeaturedSuppliers" Relationship="Self.FK_dbo_FeaturedSuppliers_dbo_Suppliers_SupplierID" FromRole="Suppliers" ToRole="FeaturedSuppliers" />
+    <NavigationProperty Name="Plan" Relationship="Self.FK_dbo_Suppliers_dbo_Plans_PlanID" FromRole="Suppliers" ToRole="Plans" />
+    <NavigationProperty Name="ProductAttributesRelations" Relationship="Self.FK_dbo_ProductAttributesRelations_dbo_Suppliers_SupplierID" FromRole="Suppliers" ToRole="ProductAttributesRelations" />
+    <NavigationProperty Name="ProductImages" Relationship="Self.FK_dbo_ProductImages_dbo_Suppliers_SupplierID" FromRole="Suppliers" ToRole="ProductImages" />
+    <NavigationProperty Name="Products" Relationship="Self.FK_dbo_Products_dbo_Suppliers_SupplierID" FromRole="Suppliers" ToRole="Products" />
+  </EntityType>
+  <EntityType Name="Tax">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Descripton" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Category" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Rate" Type="Double" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Sort" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ThreshHold">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductId" Type="Int32" Nullable="false" />
+    <Property Name="ProductName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LowQuantityThresHold" Type="Int32" Nullable="false" />
+    <Property Name="HighQuantityThresHold" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UnitOfMeasure">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UnitOfMeasuresName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Products" Relationship="Self.FK_dbo_Products_dbo_UnitOfMeasures_UnitOfMeasuresId" FromRole="UnitOfMeasures" ToRole="Products" />
+  </EntityType>
+  <EntityType Name="WishList">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductId" Type="Int32" Nullable="false" />
+    <Property Name="CustomerId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK_dbo_WishLists_dbo_Customers_CustomerId" FromRole="WishLists" ToRole="Customers" />
+    <NavigationProperty Name="Product" Relationship="Self.FK_dbo_WishLists_dbo_Products_ProductId" FromRole="WishLists" ToRole="Products" />
+  </EntityType>
+  <EntityType Name="GetAllEmail">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="IsAttachment" />
+      <PropertyRef Name="IsRead" />
+      <PropertyRef Name="ReceiverId" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="userId" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="SenderId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Subject" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ContentMsg" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsAttachment" Type="Boolean" Nullable="false" />
+    <Property Name="Attachment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsRead" Type="Boolean" Nullable="false" />
+    <Property Name="SendingDate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ReceiverId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GetAllUsersemail">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="String" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="GetAttribute">
+    <Key>
+      <PropertyRef Name="AttributeName" />
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="AttributeValue" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="AttributeName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Id" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductAttribute_view">
+    <Key>
+      <PropertyRef Name="productId" />
+      <PropertyRef Name="Quantity" />
+      <PropertyRef Name="Cost" />
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="IsFeatured" />
+    </Key>
+    <Property Name="AttributeName" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="AttributeValue" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="productId" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="Cost" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="IsFeatured" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductValues_view">
+    <Key>
+      <PropertyRef Name="AttributeName" />
+      <PropertyRef Name="SupplierID" />
+    </Key>
+    <Property Name="AttributeValue" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="IsFeatured" Type="Boolean" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="ProductQuantityID" Type="Int32" />
+    <Property Name="Cost" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="AttributeName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Id" Type="Int32" />
+    <Property Name="SupplierID" Type="Int32" Nullable="false" />
+    <Property Name="productId" Type="Int32" />
+    <Property Name="ProductName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SupplierName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ImageName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ImagePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CateogryID" Type="Int32" />
+  </EntityType>
+  <Association Name="FK_dbo_AllProductImages_dbo_Suppliers_SupplierID">
+    <End Role="Suppliers" Type="Self.Supplier" Multiplicity="0..1" />
+    <End Role="AllProductImages" Type="Self.AllProductImage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Suppliers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AllProductImages">
+        <PropertyRef Name="SupplierID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ProductImages_dbo_AllProductImages_ImageID">
+    <End Role="AllProductImages" Type="Self.AllProductImage" Multiplicity="0..1" />
+    <End Role="ProductImages" Type="Self.ProductImage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AllProductImages">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProductImages">
+        <PropertyRef Name="ImageID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+    <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetRoles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id">
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_Claims_ClaimID">
+    <End Role="Claims" Type="Self.Claim" Multiplicity="0..1" />
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Claims">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="ClaimID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Customers_dbo_AspNetUsers_UserID">
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+    <End Role="Customers" Type="Self.Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Customers">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Suppliers_dbo_AspNetUsers_UserID">
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+    <End Role="Suppliers" Type="Self.Supplier" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Suppliers">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Categories_dbo_Categories_ParentCategory">
+    <End Role="Categories" Type="Self.Category" Multiplicity="0..1" />
+    <End Role="Categories1" Type="Self.Category" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categories">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Categories1">
+        <PropertyRef Name="ParentCategory" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Categories_dbo_Suppliers_Supplier_Id">
+    <End Role="Suppliers" Type="Self.Supplier" Multiplicity="0..1" />
+    <End Role="Categories" Type="Self.Category" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Suppliers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Categories">
+        <PropertyRef Name="Supplier_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Products_dbo_Categories_CateogryID">
+    <End Role="Categories" Type="Self.Category" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Products" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categories">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="CateogryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_CustomerReviews_dbo_Products_ProductId">
+    <End Role="Products" Type="Self.Product" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CustomerReviews" Type="Self.CustomerReview" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CustomerReviews">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Orders_dbo_Customers_CustomerID">
+    <End Role="Customers" Type="Self.Customer" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Orders" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_WishLists_dbo_Customers_CustomerId">
+    <End Role="Customers" Type="Self.Customer" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="WishLists" Type="Self.WishList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="WishLists">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_FeaturedSuppliers_dbo_Suppliers_SupplierID">
+    <End Role="Suppliers" Type="Self.Supplier" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="FeaturedSuppliers" Type="Self.FeaturedSupplier" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Suppliers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FeaturedSuppliers">
+        <PropertyRef Name="SupplierID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_PlanFeatures_dbo_Features_FeatureID">
+    <End Role="Features" Type="Self.Feature" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="PlanFeatures" Type="Self.PlanFeature" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Features">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PlanFeatures">
+        <PropertyRef Name="FeatureID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Products_dbo_Manufacturers_ManuFacturerID">
+    <End Role="Manufacturers" Type="Self.Manufacturer" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Products" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Manufacturers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="ManuFacturerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_OrderItems_dbo_Orders_Orders_Id">
+    <End Role="Orders" Type="Self.Order" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="OrderItems" Type="Self.OrderItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OrderItems">
+        <PropertyRef Name="Orders_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_OrderItems_dbo_ProductAttributeWithQuantities_ProductID">
+    <End Role="ProductAttributeWithQuantities" Type="Self.ProductAttributeWithQuantity" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="OrderItems" Type="Self.OrderItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductAttributeWithQuantities">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OrderItems">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Orders_dbo_OrderStatus_OrderStatusID">
+    <End Role="OrderStatus" Type="Self.OrderStatu" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Orders" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderStatus">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="OrderStatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_PlanFeatures_dbo_Plans_PlanID">
+    <End Role="Plans" Type="Self.Plan" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="PlanFeatures" Type="Self.PlanFeature" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Plans">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PlanFeatures">
+        <PropertyRef Name="PlanID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Suppliers_dbo_Plans_PlanID">
+    <End Role="Plans" Type="Self.Plan" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Suppliers" Type="Self.Supplier" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Plans">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Suppliers">
+        <PropertyRef Name="PlanID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ProductAttributesRelations_dbo_ProductAttributes_ProductAttributesId">
+    <End Role="ProductAttributes" Type="Self.ProductAttribute" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ProductAttributesRelations" Type="Self.ProductAttributesRelation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductAttributes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProductAttributesRelations">
+        <PropertyRef Name="ProductAttributesId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ProductAttributesRelations_dbo_Products_Product_Id">
+    <End Role="Products" Type="Self.Product" Multiplicity="0..1" />
+    <End Role="ProductAttributesRelations" Type="Self.ProductAttributesRelation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProductAttributesRelations">
+        <PropertyRef Name="Product_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ProductAttributesRelations_dbo_Suppliers_SupplierID">
+    <End Role="Suppliers" Type="Self.Supplier" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ProductAttributesRelations" Type="Self.ProductAttributesRelation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Suppliers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProductAttributesRelations">
+        <PropertyRef Name="SupplierID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ProductAttributeWithQuantities_dbo_Products_ProductId">
+    <End Role="Products" Type="Self.Product" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ProductAttributeWithQuantities" Type="Self.ProductAttributeWithQuantity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProductAttributeWithQuantities">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ProductAttributeWithQuantities_dbo_ProductStatus_StatusId">
+    <End Role="ProductStatus" Type="Self.ProductStatu" Multiplicity="0..1" />
+    <End Role="ProductAttributeWithQuantities" Type="Self.ProductAttributeWithQuantity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductStatus">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProductAttributeWithQuantities">
+        <PropertyRef Name="StatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ProductImages_dbo_ProductAttributeWithQuantities_ProductQuantityId">
+    <End Role="ProductAttributeWithQuantities" Type="Self.ProductAttributeWithQuantity" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ProductImages" Type="Self.ProductImage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductAttributeWithQuantities">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProductImages">
+        <PropertyRef Name="ProductQuantityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ProductImages_dbo_Products_Product_Id">
+    <End Role="Products" Type="Self.Product" Multiplicity="0..1" />
+    <End Role="ProductImages" Type="Self.ProductImage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProductImages">
+        <PropertyRef Name="Product_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ProductImages_dbo_Suppliers_SupplierID">
+    <End Role="Suppliers" Type="Self.Supplier" Multiplicity="0..1" />
+    <End Role="ProductImages" Type="Self.ProductImage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Suppliers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProductImages">
+        <PropertyRef Name="SupplierID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Products_dbo_Suppliers_SupplierID">
+    <End Role="Suppliers" Type="Self.Supplier" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Products" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Suppliers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="SupplierID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Products_dbo_UnitOfMeasures_UnitOfMeasuresId">
+    <End Role="UnitOfMeasures" Type="Self.UnitOfMeasure" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Products" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UnitOfMeasures">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="UnitOfMeasuresId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_WishLists_dbo_Products_ProductId">
+    <End Role="Products" Type="Self.Product" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="WishLists" Type="Self.WishList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="WishLists">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SHIVAMEcommerceDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+    <EntitySet Name="AllProductImages" EntityType="Self.AllProductImage" />
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+    <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRole" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+    <EntitySet Name="Categories" EntityType="Self.Category" />
+    <EntitySet Name="Claims" EntityType="Self.Claim" />
+    <EntitySet Name="CustomerAddresses" EntityType="Self.CustomerAddress" />
+    <EntitySet Name="CustomerReviews" EntityType="Self.CustomerReview" />
+    <EntitySet Name="Customers" EntityType="Self.Customer" />
+    <EntitySet Name="emailrecords" EntityType="Self.emailrecord" />
+    <EntitySet Name="EmailSenders" EntityType="Self.EmailSender" />
+    <EntitySet Name="FeaturedSuppliers" EntityType="Self.FeaturedSupplier" />
+    <EntitySet Name="Features" EntityType="Self.Feature" />
+    <EntitySet Name="Manufacturers" EntityType="Self.Manufacturer" />
+    <EntitySet Name="OrderItems" EntityType="Self.OrderItem" />
+    <EntitySet Name="Orders" EntityType="Self.Order" />
+    <EntitySet Name="OrderStatus" EntityType="Self.OrderStatu" />
+    <EntitySet Name="Payments" EntityType="Self.Payment" />
+    <EntitySet Name="PlanFeatures" EntityType="Self.PlanFeature" />
+    <EntitySet Name="Plans" EntityType="Self.Plan" />
+    <EntitySet Name="ProductAttributes" EntityType="Self.ProductAttribute" />
+    <EntitySet Name="ProductAttributesRelations" EntityType="Self.ProductAttributesRelation" />
+    <EntitySet Name="ProductAttributeWithQuantities" EntityType="Self.ProductAttributeWithQuantity" />
+    <EntitySet Name="ProductImages" EntityType="Self.ProductImage" />
+    <EntitySet Name="Products" EntityType="Self.Product" />
+    <EntitySet Name="ProductStatus" EntityType="Self.ProductStatu" />
+    <EntitySet Name="Suppliers" EntityType="Self.Supplier" />
+    <EntitySet Name="Taxes" EntityType="Self.Tax" />
+    <EntitySet Name="ThreshHolds" EntityType="Self.ThreshHold" />
+    <EntitySet Name="UnitOfMeasures" EntityType="Self.UnitOfMeasure" />
+    <EntitySet Name="WishLists" EntityType="Self.WishList" />
+    <EntitySet Name="GetAllEmails" EntityType="Self.GetAllEmail" />
+    <EntitySet Name="GetAllUsersemails" EntityType="Self.GetAllUsersemail" />
+    <EntitySet Name="GetAttributes" EntityType="Self.GetAttribute" />
+    <EntitySet Name="ProductAttribute_view" EntityType="Self.ProductAttribute_view" />
+    <EntitySet Name="ProductValues_view" EntityType="Self.ProductValues_view" />
+    <AssociationSet Name="FK_dbo_AllProductImages_dbo_Suppliers_SupplierID" Association="Self.FK_dbo_AllProductImages_dbo_Suppliers_SupplierID">
+      <End Role="Suppliers" EntitySet="Suppliers" />
+      <End Role="AllProductImages" EntitySet="AllProductImages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ProductImages_dbo_AllProductImages_ImageID" Association="Self.FK_dbo_ProductImages_dbo_AllProductImages_ImageID">
+      <End Role="AllProductImages" EntitySet="AllProductImages" />
+      <End Role="ProductImages" EntitySet="ProductImages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_Claims_ClaimID" Association="Self.FK_dbo_AspNetUserClaims_dbo_Claims_ClaimID">
+      <End Role="Claims" EntitySet="Claims" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Customers_dbo_AspNetUsers_UserID" Association="Self.FK_dbo_Customers_dbo_AspNetUsers_UserID">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="Customers" EntitySet="Customers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Suppliers_dbo_AspNetUsers_UserID" Association="Self.FK_dbo_Suppliers_dbo_AspNetUsers_UserID">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="Suppliers" EntitySet="Suppliers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Categories_dbo_Categories_ParentCategory" Association="Self.FK_dbo_Categories_dbo_Categories_ParentCategory">
+      <End Role="Categories" EntitySet="Categories" />
+      <End Role="Categories1" EntitySet="Categories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Categories_dbo_Suppliers_Supplier_Id" Association="Self.FK_dbo_Categories_dbo_Suppliers_Supplier_Id">
+      <End Role="Suppliers" EntitySet="Suppliers" />
+      <End Role="Categories" EntitySet="Categories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Products_dbo_Categories_CateogryID" Association="Self.FK_dbo_Products_dbo_Categories_CateogryID">
+      <End Role="Categories" EntitySet="Categories" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_CustomerReviews_dbo_Products_ProductId" Association="Self.FK_dbo_CustomerReviews_dbo_Products_ProductId">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="CustomerReviews" EntitySet="CustomerReviews" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Orders_dbo_Customers_CustomerID" Association="Self.FK_dbo_Orders_dbo_Customers_CustomerID">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_WishLists_dbo_Customers_CustomerId" Association="Self.FK_dbo_WishLists_dbo_Customers_CustomerId">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="WishLists" EntitySet="WishLists" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_FeaturedSuppliers_dbo_Suppliers_SupplierID" Association="Self.FK_dbo_FeaturedSuppliers_dbo_Suppliers_SupplierID">
+      <End Role="Suppliers" EntitySet="Suppliers" />
+      <End Role="FeaturedSuppliers" EntitySet="FeaturedSuppliers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_PlanFeatures_dbo_Features_FeatureID" Association="Self.FK_dbo_PlanFeatures_dbo_Features_FeatureID">
+      <End Role="Features" EntitySet="Features" />
+      <End Role="PlanFeatures" EntitySet="PlanFeatures" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Products_dbo_Manufacturers_ManuFacturerID" Association="Self.FK_dbo_Products_dbo_Manufacturers_ManuFacturerID">
+      <End Role="Manufacturers" EntitySet="Manufacturers" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_OrderItems_dbo_Orders_Orders_Id" Association="Self.FK_dbo_OrderItems_dbo_Orders_Orders_Id">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="OrderItems" EntitySet="OrderItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_OrderItems_dbo_ProductAttributeWithQuantities_ProductID" Association="Self.FK_dbo_OrderItems_dbo_ProductAttributeWithQuantities_ProductID">
+      <End Role="ProductAttributeWithQuantities" EntitySet="ProductAttributeWithQuantities" />
+      <End Role="OrderItems" EntitySet="OrderItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Orders_dbo_OrderStatus_OrderStatusID" Association="Self.FK_dbo_Orders_dbo_OrderStatus_OrderStatusID">
+      <End Role="OrderStatus" EntitySet="OrderStatus" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_PlanFeatures_dbo_Plans_PlanID" Association="Self.FK_dbo_PlanFeatures_dbo_Plans_PlanID">
+      <End Role="Plans" EntitySet="Plans" />
+      <End Role="PlanFeatures" EntitySet="PlanFeatures" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Suppliers_dbo_Plans_PlanID" Association="Self.FK_dbo_Suppliers_dbo_Plans_PlanID">
+      <End Role="Plans" EntitySet="Plans" />
+      <End Role="Suppliers" EntitySet="Suppliers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ProductAttributesRelations_dbo_ProductAttributes_ProductAttributesId" Association="Self.FK_dbo_ProductAttributesRelations_dbo_ProductAttributes_ProductAttributesId">
+      <End Role="ProductAttributes" EntitySet="ProductAttributes" />
+      <End Role="ProductAttributesRelations" EntitySet="ProductAttributesRelations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ProductAttributesRelations_dbo_Products_Product_Id" Association="Self.FK_dbo_ProductAttributesRelations_dbo_Products_Product_Id">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="ProductAttributesRelations" EntitySet="ProductAttributesRelations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ProductAttributesRelations_dbo_Suppliers_SupplierID" Association="Self.FK_dbo_ProductAttributesRelations_dbo_Suppliers_SupplierID">
+      <End Role="Suppliers" EntitySet="Suppliers" />
+      <End Role="ProductAttributesRelations" EntitySet="ProductAttributesRelations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ProductAttributeWithQuantities_dbo_Products_ProductId" Association="Self.FK_dbo_ProductAttributeWithQuantities_dbo_Products_ProductId">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="ProductAttributeWithQuantities" EntitySet="ProductAttributeWithQuantities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ProductAttributeWithQuantities_dbo_ProductStatus_StatusId" Association="Self.FK_dbo_ProductAttributeWithQuantities_dbo_ProductStatus_StatusId">
+      <End Role="ProductStatus" EntitySet="ProductStatus" />
+      <End Role="ProductAttributeWithQuantities" EntitySet="ProductAttributeWithQuantities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ProductImages_dbo_ProductAttributeWithQuantities_ProductQuantityId" Association="Self.FK_dbo_ProductImages_dbo_ProductAttributeWithQuantities_ProductQuantityId">
+      <End Role="ProductAttributeWithQuantities" EntitySet="ProductAttributeWithQuantities" />
+      <End Role="ProductImages" EntitySet="ProductImages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ProductImages_dbo_Products_Product_Id" Association="Self.FK_dbo_ProductImages_dbo_Products_Product_Id">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="ProductImages" EntitySet="ProductImages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ProductImages_dbo_Suppliers_SupplierID" Association="Self.FK_dbo_ProductImages_dbo_Suppliers_SupplierID">
+      <End Role="Suppliers" EntitySet="Suppliers" />
+      <End Role="ProductImages" EntitySet="ProductImages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Products_dbo_Suppliers_SupplierID" Association="Self.FK_dbo_Products_dbo_Suppliers_SupplierID">
+      <End Role="Suppliers" EntitySet="Suppliers" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Products_dbo_UnitOfMeasures_UnitOfMeasuresId" Association="Self.FK_dbo_Products_dbo_UnitOfMeasures_UnitOfMeasuresId">
+      <End Role="UnitOfMeasures" EntitySet="UnitOfMeasures" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_WishLists_dbo_Products_ProductId" Association="Self.FK_dbo_WishLists_dbo_Products_ProductId">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="WishLists" EntitySet="WishLists" />
+    </AssociationSet>
+    <FunctionImport Name="SplitString" ReturnType="Collection(SHIVAMEcommerceDBNew18Model.SplitString_Result)" IsComposable="true">
+      <Parameter Name="Input" Mode="In" Type="String" />
+      <Parameter Name="Character" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetProductsCount">
+      <Parameter Name="SupplierId" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetProductsDetail">
+      <Parameter Name="SupplierId" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="InsertProduct">
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="ProductCode" Mode="In" Type="String" />
+      <Parameter Name="Description" Mode="In" Type="String" />
+      <Parameter Name="categoryName" Mode="In" Type="String" />
+      <Parameter Name="UnitOfMeasure" Mode="In" Type="String" />
+      <Parameter Name="ManuFacturer" Mode="In" Type="String" />
+      <Parameter Name="SupplierID" Mode="In" Type="Int32" />
+      <Parameter Name="ProductID" Mode="InOut" Type="Int32" />
+      <Parameter Name="categoryID" Mode="In" Type="Int32" />
+      <Parameter Name="ManufacturerID" Mode="In" Type="Int32" />
+      <Parameter Name="UnitOfMeasureID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="InsertProductAttributes">
+      <Parameter Name="AttributeValues" Mode="In" Type="String" />
+      <Parameter Name="ProductPrice" Mode="In" Type="Decimal" />
+      <Parameter Name="ProductQuantity" Mode="In" Type="Decimal" />
+      <Parameter Name="ProductId" Mode="In" Type="Int32" />
+      <Parameter Name="UnitInStock" Mode="In" Type="Decimal" />
+      <Parameter Name="UnitWeight" Mode="In" Type="Decimal" />
+      <Parameter Name="HighQuantityThreshold" Mode="In" Type="Decimal" />
+      <Parameter Name="LowQuantityThreshold" Mode="In" Type="Decimal" />
+      <Parameter Name="ProductStatus" Mode="In" Type="String" />
+      <Parameter Name="StatusID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_GetAllSortedProducts">
+      <Parameter Name="DisplayLength" Mode="In" Type="Int32" />
+      <Parameter Name="DisplayStart" Mode="In" Type="Int32" />
+      <Parameter Name="SortCol" Mode="In" Type="String" />
+      <Parameter Name="SortDir" Mode="In" Type="String" />
+      <Parameter Name="SearchText" Mode="In" Type="String" />
+      <Parameter Name="SupplierId" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_GetAllSortedProductsFrontFace">
+      <Parameter Name="DisplayLength" Mode="In" Type="Int32" />
+      <Parameter Name="DisplayStart" Mode="In" Type="Int32" />
+      <Parameter Name="SortCol" Mode="In" Type="String" />
+      <Parameter Name="SortDir" Mode="In" Type="String" />
+      <Parameter Name="SearchText" Mode="In" Type="String" />
+      <Parameter Name="FilterText" Mode="In" Type="String" />
+      <Parameter Name="Categories" Mode="In" Type="String" />
+      <Parameter Name="LowPrice" Mode="In" Type="String" />
+      <Parameter Name="HighPrice" Mode="In" Type="String" />
+      <Parameter Name="IsFeatured" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+</Schema>

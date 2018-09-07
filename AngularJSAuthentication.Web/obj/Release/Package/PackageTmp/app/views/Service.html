@@ -1,0 +1,104 @@
+﻿<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <td colspan="2">
+                Fill Below Form To Add A New Service
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Name</td>
+            <td>
+                <input type="text" id="ServiceName" class="form-control" />
+            </td>
+        </tr>
+        <tr>
+            <td>Description</td>
+            <td>
+                <textarea id="ServiceDescription" class="form-control"> </textarea>
+            </td>
+        </tr>
+        <tr>
+            <td>Service Start Time</td>
+            <td>
+                <input type="text" id="ServiceStartTime" class="form-control" />
+            </td>
+        </tr>
+        <tr>
+            <td>Service End Time</td>
+            <td>
+                <input type="text" id="ServiceEndTime" class="form-control"/> 
+            </td>
+        </tr>
+        <tr>
+            <td>Service Estimated Complition Time</td>
+            <td>
+                <input type="text" id="ServiceEstimatedComplitionTime" class="form-control"/> 
+            </td>
+        </tr>
+        <tr>
+            <td>Is Service Rescheduable</td>
+            <td>
+                <input type="text" id="IsServiceRescheduable" class="form-control"/> 
+            </td>
+        </tr>   
+        <tr>
+            <td>Service Reschedule Date</td>
+            <td>
+                <input type="Date" id="ServiceRescheduleDate" class="form-control"/> 
+            </td>
+        </tr>       
+    </tbody>
+    <tfoot>
+        <tr>
+            <td>
+                <input type="button" id="AddService" value="Add New Customer" class="btn btn-primary" />
+            </td>
+            <td>
+                <input type="button" id="ResetService" value="ResetForm" class="btn btn-primary" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <div id="divError">
+                    <p id="divErrorText"></p>
+                </div>
+            </td>
+        </tr>
+    </tfoot>
+</table>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $("#AddCustomer").click(function () {
+            debugger;
+            var Service = {
+                Name: $("#ServiceName").val(),
+                Description: $("#ServiceDescription").val(),
+                ServiceStartTime: $("#ServiceStartTime").val(),
+                ServiceCompletionTime: $("#ServiceEstimatedComplitionTime").val(),
+                ServiceEndTime: $("#ServiceEndTime").val(),
+                IsServiceReScheduable: $("#IsServiceRescheduable").val(),
+                ServiceRescheduleDate: $("#ServiceRescheduleDate").val(),
+            }
+            console.log(Service);
+            $.ajax({
+                url: 'http://localhost:26264/api/Service',
+                method: 'POST',
+                data: JSON.stringify(Service),
+                contentType: "application/json",
+                processData: false,
+                success: function () {
+                    alert("Successful");
+                },
+                error: function (jqXHR) {
+                    $("#divError").show('fade');
+                    $("#divErrorText").text(jqXHR.responseText);
+                }
+            });
+        });
+    });
+</script>

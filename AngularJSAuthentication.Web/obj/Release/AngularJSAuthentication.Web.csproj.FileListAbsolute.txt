@@ -1,0 +1,6 @@
+E:\Shivam_Ecommerce\ShivSagarOnline\AngularJSAuthentication.Web\bin\AngularJSAuthentication.Web.dll.config
+E:\Shivam_Ecommerce\ShivSagarOnline\AngularJSAuthentication.Web\bin\AngularJSAuthentication.Web.dll
+E:\Shivam_Ecommerce\ShivSagarOnline\AngularJSAuthentication.Web\bin\AngularJSAuthentication.Web.pdb
+E:\Shivam_Ecommerce\ShivSagarOnline\AngularJSAuthentication.Web\obj\Release\AngularJSAuthentication.Web.csprojResolveAssemblyReference.cache
+E:\Shivam_Ecommerce\ShivSagarOnline\AngularJSAuthentication.Web\obj\Release\AngularJSAuthentication.Web.dll
+E:\Shivam_Ecommerce\ShivSagarOnline\AngularJSAuthentication.Web\obj\Release\AngularJSAuthentication.Web.pdb

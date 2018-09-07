@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b196a24e8cfc4064986fe6a59a2dd9d7" Name="Diagram1">
+        <EntityTypeShape EntityType="SHIVAMEcommerceDBNew18Model.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SHIVAMEcommerceDBNew18Model.AllProductImage" Width="1.5" PointX="11.25" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SHIVAMEcommerceDBNew18Model.AspNetRole" Width="1.5" PointX="3.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SHIVAMEcommerceDBNew18Model.AspNetUserClaim" Width="1.5" PointX="3" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="SHIVAMEcommerceDBNew18Model.AspNetUserLogin" Width="1.5" PointX="3" PointY="22" IsExpanded="true" />
+        <EntityTypeShape EntityType="SHIVAMEcommerceDBNew18Model.AspNetUserRole" Width="1.5" PointX="6" PointY="20.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SHIVAMEcommerceDBNew18Model.AspNetUser" Width="1.5" PointX="0.75" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SHIVAMEcommerceDBNew18Model.Category" Width="1.5" PointX="11.25" PointY="19.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SHIVAMEcommerceDBNew18Model.Claim" Width="1.5" PointX="0.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SHIVAMEcommerceDBNew18Model.CustomerAddress" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SHIVAMEcommerceDBNew18Model.CustomerReview" Width="1.5" PointX="18.75" PointY="20.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SHIVAMEcommerceDBNew18Model.Customer" Width="1.5" PointX="3" PointY="27.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SHIVAMEcommerceDBNew18Model.emailrecord" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SHIVAMEcommerceDBNew18Model.EmailSender" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SHIVAMEcommerceDBNew18Model.FeaturedSupplier" Width="1.5" PointX="11.25" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SHIVAMEcommerceDBNew18Model.Feature" Width="1.5" PointX="6.75" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SHIVAMEcommerceDBNew18Model.Manufacturer" Width="1.5" PointX="14.25" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SHIVAMEcommerceDBNew18Model.OrderItem" Width="1.5" PointX="10.5" PointY="28.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SHIVAMEcommerceDBNew18Model.Order" Width="1.5" PointX="5.25" PointY="26.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SHIVAMEcommerceDBNew18Model.OrderStatu" Width="1.5" PointX="3" PointY="33.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SHIVAMEcommerceDBNew18Model.Payment" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SHIVAMEcommerceDBNew18Model.PlanFeature" Width="1.5" PointX="9" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SHIVAMEcommerceDBNew18Model.Plan" Width="1.5" PointX="6.75" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SHIVAMEcommerceDBNew18Model.ProductAttribute" Width="1.5" PointX="19.5" PointY="23.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SHIVAMEcommerceDBNew18Model.ProductAttributesRelation" Width="1.5" PointX="21.75" PointY="20.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SHIVAMEcommerceDBNew18Model.ProductAttributeWithQuantity" Width="1.5" PointX="18.75" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="SHIVAMEcommerceDBNew18Model.ProductImage" Width="1.5" PointX="13.5" PointY="18.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SHIVAMEcommerceDBNew18Model.Product" Width="1.5" PointX="16.5" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SHIVAMEcommerceDBNew18Model.ProductStatu" Width="1.5" PointX="16.5" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SHIVAMEcommerceDBNew18Model.Supplier" Width="1.5" PointX="9" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SHIVAMEcommerceDBNew18Model.Tax" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SHIVAMEcommerceDBNew18Model.ThreshHold" Width="1.5" PointX="6.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SHIVAMEcommerceDBNew18Model.UnitOfMeasure" Width="1.5" PointX="14.25" PointY="23.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SHIVAMEcommerceDBNew18Model.WishList" Width="1.5" PointX="8.25" PointY="28.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SHIVAMEcommerceDBNew18Model.GetAllEmail" Width="1.5" PointX="2.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SHIVAMEcommerceDBNew18Model.GetAllUsersemail" Width="1.5" PointX="4.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SHIVAMEcommerceDBNew18Model.GetAttribute" Width="1.5" PointX="6.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SHIVAMEcommerceDBNew18Model.ProductAttribute_view" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SHIVAMEcommerceDBNew18Model.ProductValues_view" Width="1.5" PointX="8.75" PointY="4.75" IsExpanded="true" />
+        <AssociationConnector Association="SHIVAMEcommerceDBNew18Model.FK_dbo_AllProductImages_dbo_Suppliers_SupplierID" ManuallyRouted="false" />
+        <AssociationConnector Association="SHIVAMEcommerceDBNew18Model.FK_dbo_ProductImages_dbo_AllProductImages_ImageID" ManuallyRouted="false" />
+        <AssociationConnector Association="SHIVAMEcommerceDBNew18Model.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" ManuallyRouted="false" />
+        <AssociationConnector Association="SHIVAMEcommerceDBNew18Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="SHIVAMEcommerceDBNew18Model.FK_dbo_AspNetUserClaims_dbo_Claims_ClaimID" ManuallyRouted="false" />
+        <AssociationConnector Association="SHIVAMEcommerceDBNew18Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="SHIVAMEcommerceDBNew18Model.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="SHIVAMEcommerceDBNew18Model.FK_dbo_Customers_dbo_AspNetUsers_UserID" ManuallyRouted="false" />
+        <AssociationConnector Association="SHIVAMEcommerceDBNew18Model.FK_dbo_Suppliers_dbo_AspNetUsers_UserID" ManuallyRouted="false" />
+        <AssociationConnector Association="SHIVAMEcommerceDBNew18Model.FK_dbo_Categories_dbo_Categories_ParentCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="SHIVAMEcommerceDBNew18Model.FK_dbo_Categories_dbo_Suppliers_Supplier_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="SHIVAMEcommerceDBNew18Model.FK_dbo_Products_dbo_Categories_CateogryID" ManuallyRouted="false" />
+        <AssociationConnector Association="SHIVAMEcommerceDBNew18Model.FK_dbo_CustomerReviews_dbo_Products_ProductId" ManuallyRouted="false" />
+        <AssociationConnector Association="SHIVAMEcommerceDBNew18Model.FK_dbo_Orders_dbo_Customers_CustomerID" ManuallyRouted="false" />
+        <AssociationConnector Association="SHIVAMEcommerceDBNew18Model.FK_dbo_WishLists_dbo_Customers_CustomerId" ManuallyRouted="false" />
+        <AssociationConnector Association="SHIVAMEcommerceDBNew18Model.FK_dbo_FeaturedSuppliers_dbo_Suppliers_SupplierID" ManuallyRouted="false" />
+        <AssociationConnector Association="SHIVAMEcommerceDBNew18Model.FK_dbo_PlanFeatures_dbo_Features_FeatureID" ManuallyRouted="false" />
+        <AssociationConnector Association="SHIVAMEcommerceDBNew18Model.FK_dbo_Products_dbo_Manufacturers_ManuFacturerID" ManuallyRouted="false" />
+        <AssociationConnector Association="SHIVAMEcommerceDBNew18Model.FK_dbo_OrderItems_dbo_Orders_Orders_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="SHIVAMEcommerceDBNew18Model.FK_dbo_OrderItems_dbo_ProductAttributeWithQuantities_ProductID" ManuallyRouted="false" />
+        <AssociationConnector Association="SHIVAMEcommerceDBNew18Model.FK_dbo_Orders_dbo_OrderStatus_OrderStatusID" ManuallyRouted="false" />
+        <AssociationConnector Association="SHIVAMEcommerceDBNew18Model.FK_dbo_PlanFeatures_dbo_Plans_PlanID" ManuallyRouted="false" />
+        <AssociationConnector Association="SHIVAMEcommerceDBNew18Model.FK_dbo_Suppliers_dbo_Plans_PlanID" ManuallyRouted="false" />
+        <AssociationConnector Association="SHIVAMEcommerceDBNew18Model.FK_dbo_ProductAttributesRelations_dbo_ProductAttributes_ProductAttributesId" ManuallyRouted="false" />
+        <AssociationConnector Association="SHIVAMEcommerceDBNew18Model.FK_dbo_ProductAttributesRelations_dbo_Products_Product_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="SHIVAMEcommerceDBNew18Model.FK_dbo_ProductAttributesRelations_dbo_Suppliers_SupplierID" ManuallyRouted="false" />
+        <AssociationConnector Association="SHIVAMEcommerceDBNew18Model.FK_dbo_ProductAttributeWithQuantities_dbo_Products_ProductId" ManuallyRouted="false" />
+        <AssociationConnector Association="SHIVAMEcommerceDBNew18Model.FK_dbo_ProductAttributeWithQuantities_dbo_ProductStatus_StatusId" ManuallyRouted="false" />
+        <AssociationConnector Association="SHIVAMEcommerceDBNew18Model.FK_dbo_ProductImages_dbo_ProductAttributeWithQuantities_ProductQuantityId" ManuallyRouted="false" />
+        <AssociationConnector Association="SHIVAMEcommerceDBNew18Model.FK_dbo_ProductImages_dbo_Products_Product_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="SHIVAMEcommerceDBNew18Model.FK_dbo_ProductImages_dbo_Suppliers_SupplierID" ManuallyRouted="false" />
+        <AssociationConnector Association="SHIVAMEcommerceDBNew18Model.FK_dbo_Products_dbo_Suppliers_SupplierID" ManuallyRouted="false" />
+        <AssociationConnector Association="SHIVAMEcommerceDBNew18Model.FK_dbo_Products_dbo_UnitOfMeasures_UnitOfMeasuresId" ManuallyRouted="false" />
+        <AssociationConnector Association="SHIVAMEcommerceDBNew18Model.FK_dbo_WishLists_dbo_Products_ProductId" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

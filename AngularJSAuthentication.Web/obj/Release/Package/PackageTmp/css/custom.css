@@ -1,0 +1,8 @@
+/* your styles go here */
+
+ .colorcheck {
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+    margin-right: 3px;
+}

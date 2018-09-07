@@ -1,0 +1,83 @@
+﻿<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <td colspan="2">
+                Fill Below Form To Add A New Employee
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Name</td>
+            <td>
+                <input type="text" id="EmployeeName" class="form-control" />
+            </td>
+        </tr>
+        <tr>
+            <td>Address</td>
+            <td>
+                <input type="text" id="EmployeeAddress" class="form-control" />
+            </td>
+        </tr>
+        <tr>
+            <td>Contact Number</td>
+            <td>
+                <input type="text" id="EmployeeContactNumber" class="form-control" />
+            </td>
+        </tr>
+        <tr>
+            <td>Description</td>
+            <td>
+                <textarea id="EmployeeDescription" class="form-control"> </textarea>
+            </td>
+        </tr>       
+    </tbody>
+    <tfoot>
+        <tr>
+            <td>
+                <input type="button" id="AddEmployee" value="Add New Employee" class="btn btn-primary" />
+            </td>
+            <td>
+                <input type="button" id="ResetEmployee" value="ResetForm" class="btn btn-primary" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <div id="divError">
+                    <p id="divErrorText"></p>
+                </div>
+            </td>
+        </tr>
+    </tfoot>
+</table>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $("#AddEmployee").click(function () {
+            debugger;
+            var Employee = {
+                Name: $("#EmployeeName").val(),
+                Address: $("#EmployeeAddress").val(),
+                ContactNumber: $("#EmployeeContactNumber").val(),
+                Description: $("#EmployeeDescription").val(),
+            }
+            console.log(Employee);
+            $.ajax({
+                url: 'http://localhost:26264/api/Employee',
+                method: 'POST',
+                data: JSON.stringify(Employee),
+                contentType: "application/json",
+                processData: false,
+                success: function () {
+                    alert("Successful");
+                },
+                error: function (jqXHR) {
+                    $("#divError").show('fade');
+                    $("#divErrorText").text(jqXHR.responseText);
+                }
+            });
+        });
+    });
+</script>
